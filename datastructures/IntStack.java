@@ -1,7 +1,6 @@
 public class IntStack {
     int [] stack;
     int top;
-    
     public IntStack(int size) {
 	top=0;
 	stack = new int[size];
@@ -34,19 +33,59 @@ public class IntStack {
     }
     
     
+    //issue #2
+    // http://stackoverflow.com/questions/1519736/random-shuffling-of-an-array
+    int[] randomize(){
+
+	int[] list = new int[top];
+	for (int i=0; i< list.length; i++)
+	    {
+		//make the array
+		list[i] = pop();
+		//shuffle the array
+		shuffleArray(list);
+		//redo the array
+		for (int j=0; j<list.length;j++)
+		    {
+			return list[j];
+		    } 
+	    }
+	return list;
+    }   
+
+    //issue #10   
+    //by raina
+    int[] popall(){
+	//make an array
+	int[] list = new int[top];
+	for (int i=0; i< list.length; i++)
+	    {
+		list[i] = pop();
+	    } 
+	//return the array
+	return list;
+    }
+
     public static void main(String[] args) {
-	IntStack is = new IntStack(4);
+	IntStack is = new IntStack(10);
 	is.push(4);
 	is.push(5);
-       	is.push(6);
-	is.push(7);
-	//int x = Integer.parseInt(args[0]);
+	is.push(6);
+	
 	int k = is.pop();
 	System.out.println(k);
-        
+	System.out.println();
+
+	//test for randomize
+	int[] test = is.randomize();
+	for (int j : test) System.out.println(j+" ");
+	System.out.println("\n");
 
 
-	//	System.out.println(is.pop());
+	//tests for popall:
+        int[] tmpArr = is.popall();
+	for (int i : tmpArr) System.out.print(i + " ");
+	System.out.println("\n");
     }
 
 }
