@@ -1,3 +1,4 @@
+import java.util.Random;
 public class IntStack {
     int [] stack;
     int top;
@@ -23,25 +24,32 @@ public class IntStack {
     }
 
     //issue #2
-    // http://stackoverflow.com/questions/1519736/random-shuffling-of-an-array
     int[] randomize(){
 
 	int[] list = new int[top];
 	for (int i=0; i< list.length; i++)
 	    {
 		//make the array
-		list[i] = pop();
-		//shuffle the array
-		shuffleArray(list);
-		//redo the array
-		for (int j=0; j<list.length;j++)
-		    {
-			return list[j];
-		    } 
+		list[i] = peek(i);
+	     
 	    }
+	shuffleArray(list);
 	return list;
-    }   
-
+    }
+    //borrowed from http://stackoverflow.com/questions/1519736/random-shuffling-of-an-array
+	static void shuffleArray(int[] ar)
+	{
+	    Random rnd = new Random();
+	    for (int i = ar.length - 1; i > 0; i--)
+		{
+		    int index = rnd.nextInt(i + 1);
+		    // Simple swap
+		    int a = ar[index];
+		    ar[index] = ar[i];
+		    ar[i] = a;
+		}
+	}
+  
     //issue #10   
     //by raina
     int[] popall(){
@@ -69,7 +77,6 @@ public class IntStack {
 	int[] test = is.randomize();
 	for (int j : test) System.out.println(j+" ");
 	System.out.println("\n");
-
 
 	//tests for popall:
         int[] tmpArr = is.popall();
