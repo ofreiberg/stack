@@ -1,6 +1,5 @@
 stack
 =====
-our stack project
+our stack project /n
 Group: @JuliusClaudius @c15rl @ofreiberg
-hello
 
