@@ -32,7 +32,8 @@ public class IntStack {
 	    System.out.println(p);
 	}
     }
-    
+    //issue #1
+
     
     //issue #2
     int[] randomize(){
@@ -41,13 +42,13 @@ public class IntStack {
 	for (int i=0; i< list.length; i++)
 	    {
 		//make the array
-		list[i] = peek(i);
+		list[i] = peekDepth(i);
 	     
 	    }
 	shuffleArray(list);
 	return list;
     }
-    //borrowed from http://stackoverflow.com/questions/1519736/random-shuffling-of-an-array
+    /*borrowed from http://stackoverflow.com/questions/1519736/random-shuffling-of-an-array*/
 	static void shuffleArray(int[] ar)
 	{
 	    Random rnd = new Random();
